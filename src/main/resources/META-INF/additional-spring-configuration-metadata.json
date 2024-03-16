@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "argo-flow.host",
+    "type": "java.lang.String",
+    "description": "A description for 'argo-flow.host'"
+  },
+  {
+    "name": "argo-flow.port",
+    "type": "java.lang.String",
+    "description": "A description for 'argo-flow.port'"
+  },
+  {
+    "name": "trust.store",
+    "type": "java.lang.String",
+    "description": "A description for 'trust.store'"
+  },
+    {
+    "name": "trust.store.password",
+    "type": "java.lang.String",
+    "description": "A description for 'trust.store.password'"
+  }
+]}

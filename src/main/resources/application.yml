@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+argo-flow:
+  host: localhost
+  port: 2746
+  
+trust:
+  store: classpath:keystore/argo.p12
+  store.password: underground
