@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ArgoFlowController {
 	private final ArgoFlowService argoFlowService;
 	
-	@PostMapping( produces = "application/json", value = "/submitFlow")	
+	@PostMapping(produces = "application/json", value = "/submitFlow")	
 	public ResponseEntity<Object> submitFlow(@RequestBody String template) {	
 		log.debug("submitFlow: submit flow with template: {}", template);
 		
