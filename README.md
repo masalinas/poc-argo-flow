@@ -14,7 +14,7 @@ This keystore must be include in a keystore folder resource in our project to co
 
 ![Captura de pantalla 2024-03-18 a las 0 08 19](https://github.com/masalinas/poc-argo-flow/assets/1216181/c2a516cd-d4f9-4213-a12b-bbefc2f3a390)
 
-## Create Java API Client
+## Create Java API Client
 
 1. The Argo java API client contract can be download from swagger REST Contract recovered from API docs menu item inside Argo UI Portal. 
 
