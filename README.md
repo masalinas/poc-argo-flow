@@ -25,7 +25,7 @@ This keystore must be include in a keystore folder resource in our project to co
 Other way to generate the argo API Client resources is using the swagger generator like this:
 
 ```
-java -jar swagger-codegen-cli.jar generate \
+java --add-opens=java.base/java.util=ALL-UNNAMED -jar swagger-codegen-cli.jar generate \
   -i argo-swagger.json \
   --api-package io.oferto.argo.flow.client.api \
   --model-package io.oferto.argo.flow.client.model \
