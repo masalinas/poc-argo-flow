@@ -1,6 +1,26 @@
 # Description
 Poc Argo WorkFlows and SpringBoot
 
+## TLS connection
+
+Generate a keystore with the ca.crt value (root ca certificate) used by Argo to auto-signed the certificates. This value can be recover from kubernetes secret called argo-service-account-token
+
+```
+keytool -import -alias argo -file ca.crt -storetype PKCS12 -storepass underground -keystore argo.p12
+keytool -list -v -storetype PKCS12 -storepass underground -keystore argo.p12
+```
+
+## Create Java API Client
+
+1. The Argo java API client can be generated from swagger REST Contract recovered from API docs menu option inside Argo UI Portal. 
+
+2. Save this file locally and open the portal Swagger Editor from Swagger (https://editor.swagger.io). Load the previous swagger contract file and generate the Java Client.
+
+3. Load the Maven Project Argo API client and rename the packages and project as you want.
+
+4. Use the jar compiled of the Argo API Client inside your microservice to be used. You must create a keystore folder inside and copy the previous keystore with the root ca used by Argo to connect throw TLS.
+
+
 ## Debug
 
 First submit a workflow template from Argo UI
