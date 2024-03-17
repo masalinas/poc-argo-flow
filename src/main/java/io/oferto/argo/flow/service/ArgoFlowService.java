@@ -43,6 +43,9 @@ public class ArgoFlowService {
 	
 	private final ArgoFlowConfig argoFlowConfig;
 	
+	private final String KEYSTORE_PASSWORD = "underground";
+	private final String KEYSTORE_ALIAS = "argo";
+	
 	private final String TOKEN = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ik1mSVQ0b29vYlJOd01wZ2plWWVtcHFaandOM2xXZXB4MFhCREV6MUtGaTAifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJhcmdvIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImFyZ28uc2VydmljZS1hY2NvdW50LXRva2VuIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFyZ28iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJlODAwMGM5Mi05MmNiLTQ2Y2MtYWU2My0xMDk5YjU4N2U5MGYiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6YXJnbzphcmdvIn0.YKLFon2xZVjht1ZLec-bHa7hm5C9wsv-M7O_JddPnstee7ACM6kb7YOlqfAqkSCCbJJyfA9S88ET8fzhGcpo_cxQFVr7Ctq09EZ24OCJJZgIegUypN_RcuVzcQCGvtVonJvOojotbfkvHFORqX00VZVxtGcrM_C1kK0-ef8aLRKGA9dN8z5iW-eQ3-h8-fklNXyZFdv0rQjHU8NI7fQ-mzF75V9eKAyIX4_s2RCStMlk892wYltn9jRH809UBV5SyBOF4VmN7gKcI8aPoIhA1-_gF3glTbt4tGmSuOzwfZrWAPggPYfM_2c6dGNhgUaAHrRKtBVuZjVW0dFd9u5iFg";
 	private final String NAMESPACE = "argo";
 	
@@ -72,7 +75,7 @@ public class ArgoFlowService {
 		try {
 			sr = KeyStore.getInstance("pkcs12");
 			try {
-				sr.load(trustStore.getInputStream(), "underground".toCharArray());
+				sr.load(trustStore.getInputStream(), KEYSTORE_PASSWORD.toCharArray());
 				
 			} catch (NoSuchAlgorithmException e) {
 				// TODO Auto-generated catch block
@@ -94,7 +97,7 @@ public class ArgoFlowService {
 	    defaultClient.setBasePath("https://" + argoFlowConfig.getHost() + ":" + argoFlowConfig.getPort());
 		defaultClient.setVerifyingSsl(false);
 		try {
-			defaultClient.setSslCaCert(new ByteArrayInputStream(sr.getCertificate("argo").getEncoded()));
+			defaultClient.setSslCaCert(new ByteArrayInputStream(sr.getCertificate(KEYSTORE_ALIAS).getEncoded()));
 		} catch (CertificateEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
