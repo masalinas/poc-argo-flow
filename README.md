@@ -22,7 +22,22 @@ This keystore must be include in a keystore folder resource in our project to co
 
 4. Use the jar compiled of the Argo API Client inside your microservice to be used. You must create a keystore folder inside and copy the previous keystore with the root ca used by Argo to connect throw TLS.
 
+Other way to generate the argo API Client resources is using the swagger generator like this:
 
+```
+java -jar swagger-codegen-cli.jar generate \
+  -i argo-swagger.json \
+  --api-package io.oferto.argo.flow.client.api \
+  --model-package io.oferto.argo.flow.client.model \
+  --invoker-package io.oferto.argo.flow.client.invoker \
+  --group-id io.oferto \
+  --artifact-id poc-argo-flow-api-client \
+  --artifact-version 0.0.1-SNAPSHOT \
+  -l java \
+  --library resttemplate \
+  -o io-oferto-argo-flow-api-client
+```
+  
 ## Debug
 
 First submit a workflow template from Argo UI
