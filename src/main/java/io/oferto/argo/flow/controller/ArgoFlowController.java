@@ -1,7 +1,6 @@
 package io.oferto.argo.flow.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @AllArgsConstructor
 @RestController
-@RequestMapping(value="/argos", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value="/argos")
 public class ArgoFlowController {
 	private final ArgoFlowService argoFlowService;
 	
