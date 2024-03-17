@@ -41,7 +41,7 @@ public class RestTemplateConfig {
     private String trustStorePassword; 
 
     /*@Bean
-    RestTemplate restTemplate() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, MalformedURLException, IOException {
+    RestTemplate getRestTemplateWithValidation() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, MalformedURLException, IOException {
 		 SSLContext sslContext = new SSLContextBuilder()
 				 .loadTrustMaterial(trustStore.getURL(), trustStorePassword.toCharArray())
 				 .build();
@@ -57,11 +57,10 @@ public class RestTemplateConfig {
 		 ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
 		 
         return new RestTemplate(requestFactory);
-		//return new RestTemplate();
 	}*/
     
     @Bean
-    RestTemplate getRestTemplate() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, MalformedURLException, IOException {
+    RestTemplate getRestTemplateWithoutValidation() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, CertificateException, MalformedURLException, IOException {
     	// Create SSL context to trust all certificates
         SSLContext sslContext = SSLContext.getInstance("TLS");
         
