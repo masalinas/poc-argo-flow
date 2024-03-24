@@ -77,3 +77,5 @@ Execute the POST submit request for the previous workflow template from curl lik
 curl https://localhost:2746/api/v1/workflows/argo --insecure -H "Authorization: $ARGO_TOKEN"
 -d '{"namespace": "argo", "resourceKind": "WorkflowTemplate", "resourceName": "arm-hello-world"}'
 ```
+
+
